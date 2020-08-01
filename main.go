@@ -77,6 +77,7 @@ func (c *Collector) extractMetrics(ch chan<- prometheus.Metric, rm resourceMeta,
 			metricName = strings.ToLower(rm.metricNamespace + "_" + metricName)
 		}
 		metricName = invalidMetricChars.ReplaceAllString(metricName, "_")
+		metricName = "azure_" + metricName
 
 		if len(value.Timeseries) > 0 {
 			metricValue := value.Timeseries[0].Data[len(value.Timeseries[0].Data)-1]
