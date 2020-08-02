@@ -47,19 +47,19 @@ func (sc *SafeConfig) ReloadConfig(confFile string) (err error) {
 		return fmt.Errorf("Error parsing config file: %s", err)
 	}
 
-	if sc.C.Credentials.SubscriptionID == "" {
-		sc.C.Credentials.SubscriptionID = os.Getenv("SUBSCRIPTION_ID")
+	if c.Credentials.SubscriptionID == "" {
+		c.Credentials.SubscriptionID = os.Getenv("SUBSCRIPTION_ID")
 	}
 
-	if sc.C.Credentials.ClientID == "" {
-		sc.C.Credentials.ClientID = os.Getenv("CLIENT_ID")
+	if c.Credentials.ClientID == "" {
+		c.Credentials.ClientID = os.Getenv("CLIENT_ID")
 	}
 
-	if sc.C.Credentials.ClientSecret == "" {
-		sc.C.Credentials.ClientSecret = os.Getenv("CLIENT_SECRET")
+	if c.Credentials.ClientSecret == "" {
+		c.Credentials.ClientSecret = os.Getenv("CLIENT_SECRET")
 	}
 
-	if sc.C.Credentials.TenantID == "" {
+	if c.Credentials.TenantID == "" {
 		sc.C.Credentials.TenantID = os.Getenv("TENANT_ID")
 	}
 
